@@ -1,13 +1,8 @@
-#include <stdafx.h>
+#include <pch.h>
 #include <iostream>
 #include <cstdlib> 
 using namespace std;
 
-void cin_fail()
-{
-	cin.clear();
-	while (cin.get() != '\n');
-}
 
 int main()
 {
@@ -16,22 +11,28 @@ int main()
 	float x;
 	cout << "Введите ширину: ";
 	cin >> x;
+	if (x < 0) {
+		cout << "Введите положительное число ! \n";
+		return 1;
+	}
 
 	if (cin.fail())
 	{
-		cout << "Введите число ! \n" << endl;
-		cin_fail();
+		cout << "Введите число ! \n";
 		return 1;
 	}
 
 	float y;
 	cout << "Введите высоту: ";
 	cin >> y;
+	if (x < 0) {
+		cout << "Введите положительное число ! \n";
+		return 1;
+	}
 
 	if (cin.fail())
 	{
-		cout << "Введите число ! \n" << endl;
-		cin_fail();
+		cout << "Введите число ! \n";
 		return 1;
 	}
 
