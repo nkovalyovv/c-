@@ -1,42 +1,49 @@
+#include <stdafx.h>
 #include <iostream>
-#include <string>
+#include <cstdlib> 
 using namespace std;
 
 void cin_fail()
-    {
-    cin.clear();
-    while (cin.get() != '\n' );
-    }
+{
+	cin.clear();
+	while (cin.get() != '\n');
+}
 
-int main() {
-   int number;
-   cout << "Введите четырехзначное число: ";
-   cin >> number;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
 
-     if (cin.fail()) {
-    cout << "Введите число ! \n" << endl;
-    cin_fail();
-    system("pause"); 
-    return 0;
-    }
+	float x;
+	cout << "Введите ширину: ";
+	cin >> x;
 
-   // Преобразуем число в строку
-   string strNum = to_string(number);
+	if (cin.fail())
+	{
+		cout << "Введите число ! \n" << endl;
+		cin_fail();
+		return 1;
+	}
 
-   bool isPalindrome = true;
-   // Проверяем, равна ли строка себе, читая слева направо и справа налево
-   for (int i = 0, j = strNum.size() - 1; i < j; i++, j--) {
-      if (strNum[i] != strNum[j]) {
-         isPalindrome = false;
-         break;
-      }
-   }
+	float y;
+	cout << "Введите высоту: ";
+	cin >> y;
 
-   if (isPalindrome) {
-      cout << "true" << endl;
-   } else {
-      cout << "false" << endl;
-   }
-system("pause");
-   return 0;
+	if (cin.fail())
+	{
+		cout << "Введите число ! \n" << endl;
+		cin_fail();
+		return 1;
+	}
+
+	float z;
+	z = (x + y) * 2;
+	cout << "Периметр прямоугольника = " << z << endl;
+
+	float h;
+	h = x * y;
+	cout << "Площадь прямоугольника = " << h << endl;
+
+
+	system("pause");
+	return 0;
 }
